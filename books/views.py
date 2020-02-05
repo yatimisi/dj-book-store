@@ -5,7 +5,7 @@ from django_filters import rest_framework as filters
 from utils.permissions import IsAdminUserOrReadOnly
 
 from .models import Book
-from .serializers import BookSerializer
+from .serializers import BookSerializer, BookInfoSerializer
 
 
 class BookViewSet(ModelViewSet):
@@ -22,3 +22,9 @@ class BookViewSet(ModelViewSet):
             return queryset.filter(is_online=True)
 
         return queryset
+
+    def get_serializer_class(self):
+        if not self.request.user.is_staff:
+            return BookInfoSerializer
+
+        return super().get_serializer_class()
