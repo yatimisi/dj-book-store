@@ -7,5 +7,5 @@ class Book(models.Model):
     description = models.TextField()
     is_online = models.BooleanField()
 
-    def str(self):
+    def __str__(self):
         return self.name

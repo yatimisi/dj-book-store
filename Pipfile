@@ -17,6 +17,7 @@ djangorestframework = "*"
 django-cors-headers = "*"
 django-extensions = "*"
 django-filter = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.8"
