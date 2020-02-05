@@ -6,9 +6,7 @@ verify_ssl = true
 [dev-packages]
 flake8 = "*"
 flake8-commas = "*"
-v = {editable = true,version = "*"}
 ipython = "*"
-black = "*"
 
 [packages]
 django = "*"
@@ -18,9 +16,7 @@ django-cors-headers = "*"
 django-extensions = "*"
 django-filter = "*"
 drf-yasg = "*"
+djangorestframework-camel-case = "*"
 
 [requires]
 python_version = "3.8"
-
-[pipenv]
-allow_prereleases = true

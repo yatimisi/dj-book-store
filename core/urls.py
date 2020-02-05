@@ -1,5 +1,4 @@
 """core URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
@@ -24,18 +23,21 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from books.views import BookViewSet
+from orders.views import OrderViewSet
+
 
 router = DefaultRouter(False)
 router.register('books', BookViewSet)
+router.register('orders', OrderViewSet)
 
 schema_view = get_schema_view(
-    openapi.Info(
-        title='Book Store API',
-        default_version='v1',
-        description='My Book Store',
-    ),
-    public=True,
-    permission_classes=(permissions.AllowAny,),
+   openapi.Info(
+      title="Book Store API",
+      default_version='v1',
+      description="My Book Store",
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [

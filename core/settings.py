@@ -45,14 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
     'django_extensions',
     'django_filters',
+    'drf_yasg',
 
     'books',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +145,9 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = root('media')
 
+
 CORS_ORIGIN_WHITELIST = env.list('CORS_ORIGIN_WHITELIST')
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -154,4 +156,16 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+        'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'djangorestframework_camel_case.parser.CamelCaseFormParser',
+        'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
+        'djangorestframework_camel_case.parser.CamelCaseJSONParser',
+    ],
+    'JSON_UNDERSCOREIZE': {
+        'no_underscore_before_number': True,
+    },
 }

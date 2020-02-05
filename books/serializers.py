@@ -8,7 +8,9 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         fields = '__all__'
 
+
 class BookInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        module = Book
+        model = Book
+        # fields = ('id', 'name', 'price', 'description')
         exclude = ('is_online',)
